@@ -45,12 +45,12 @@ class ContactData extends Component {
 
     render () {
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 <input className={classes.Input} type="text" name="name" placeholder="Your Name" />
                 <input className={classes.Input} type="email" name="email" placeholder="Your Mail" />
                 <input className={classes.Input} type="text" name="street" placeholder="Street" />
                 <input className={classes.Input} type="text" name="postal" placeholder="Postal Code" />
-                <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
+                <Button btnType="Success">ORDER</Button>
             </form>
         );
         if ( this.state.loading ) {

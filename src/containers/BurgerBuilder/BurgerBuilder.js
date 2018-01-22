@@ -65,7 +65,10 @@ class BurgerBuilder extends Component {
         this.setState( { totalPrice: newPrice, ingredients: updatedIngredients } );
         this.updatePurchaseState( updatedIngredients );
     }
-
+    test = (e) => {
+        e.preventDefault();
+        console.log("Clicked....");
+    }
     removeIngredientHandler = ( type ) => {
         const oldCount = this.state.ingredients[type];
         if ( oldCount <= 0 ) {
@@ -139,13 +142,20 @@ class BurgerBuilder extends Component {
             orderSummary = <Spinner />;
         }
         // {salad: true, meat: false, ...}
+        const haha = {type:"text", placeholder:"gulugulu"};
         return (
+            <div>
+            <form>
+                    <input {...haha}/>
+                    <button onClick={this.test}>submit</button>
+            </form>
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
                 {burger}
             </Aux>
+            </div>
         );
     }
 }
